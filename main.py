@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_limiter import Limiter
-from flask_limiter import get_remote_address
+from flask_limiter.util import get_remote_address
 import hashlib
 import hmac
 import secrets
@@ -10,14 +10,6 @@ import time
 app = Flask(__name__)
 # แสดง JSON ตามลำดับที่เขียนไว้ใน Dictionary
 app.json.sort_keys = False
-
-
-
-
-
-
-
-
 # เพิ่มส่วน DOs ####
 limiter = Limiter(
     key_func=get_remote_address,
